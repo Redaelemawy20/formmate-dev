@@ -1,5 +1,5 @@
 import React from "react";
-import TextAreaI from "./interfaces/TextAreaI";
+import TextAreaI from "../interfaces/TextAreaI";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 const TextArea = ({

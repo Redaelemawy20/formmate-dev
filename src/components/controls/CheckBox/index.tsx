@@ -1,12 +1,11 @@
 import React from "react";
-import InputI from "./interfaces/InputI";
+import InputI from "../interfaces/InputI";
 const CheckBox: React.FunctionComponent<InputI> = ({
   name,
   label,
   value,
   error,
   onChange,
-  rest = {},
 }) => {
   return (
     <div className="m-3">

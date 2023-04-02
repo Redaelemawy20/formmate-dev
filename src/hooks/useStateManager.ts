@@ -1,10 +1,11 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useCallback, useState } from "react";
 import HandleChange from "../ts/common/HandleChange";
 import HandleFileUpload, {
   HandleDeleteFile,
 } from "../ts/common/HandleFileUpload";
 import Translatable, { Lang } from "../ts/common/Translatable";
 import { AttachedFiles } from "../ts/state/WithFiles";
+import { log } from "console";
 
 const useStateManager = <T>(
   data: T
@@ -22,9 +23,10 @@ const useStateManager = <T>(
 } => {
   const [state, setState] = useState<T>(data);
   const [lang, setLang] = useState<Lang>("en");
-  const handleChange: HandleChange = ({ name, value }): void => {
-    setState({ ...state, [name]: value });
-  };
+  const handleChange = useCallback<HandleChange>(({ name, value }) => {
+    setState((prev) => ({ ...prev, [name]: value }));
+    // setState({ ...state, [name]: value });
+  }, []);
   const handleTranslatableChange: HandleChange = ({ name, value }): void => {
     const translatableValue = {
       ...((state["content" as keyof T] as Translatable<any>) || {

@@ -5,7 +5,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 
-import ImageUploadPerviewI from "./interfaces/ImageUploadPerviewI";
+import ImageUploadPerviewI from "../interfaces/ImageUploadPerviewI";
 const ImageUploadPerview: React.FunctionComponent<ImageUploadPerviewI> = ({
   onUpload,
   error,
